@@ -9,7 +9,7 @@
       <div class="dropdown px-2" style="display: inline-block; float: right">
         <i class="fa-solid fa-ellipsis" data-bs-toggle="dropdown" aria-expanded="false"></i>
         <ul class="dropdown-menu">
-          <li><%= link_to 'Pending Request', group_path(group: 'request'), class: 'dropdown-item' %></li>
+          <li><%= link_to 'Pending Request', group_path(group: 'request'), class: 'dropdown-item' if current_user.join_groups.find_by(group: @group).admin? || current_user.join_groups.find_by(group: @group).moderator? %></li>
           <li><%= link_to 'Members', group_path(group: 'members'), class: 'dropdown-item' %></li>
         </ul>
       </div>
